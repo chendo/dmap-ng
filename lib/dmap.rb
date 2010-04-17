@@ -57,7 +57,7 @@ class DMAP
       when :string
         value
       when :list
-        value.inject('') { |mem, v| mem += v.to_dmap }
+        (value || []).inject('') { |mem, v| mem += v.to_dmap }
       when :version
         value.pack(pack_code)
       when :long
@@ -86,7 +86,7 @@ class DMAP
       when :string
         value.length
       when :list
-        value.inject(0) { |mem, v| mem += v.length + 8 }
+        (value || []).inject(0) { |mem, v| mem += v.length + 8 }
       else
         STATIC_LENGTH_TYPES[type].first
       end

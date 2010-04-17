@@ -18,6 +18,15 @@ describe "DSLs" do
   end
 
   describe ".build" do
+    it "must be able to handle empty list tags" do
+      lambda { 
+        DMAP.build do
+          mlcl do
+          end
+        end
+      }.should_not raise_error
+    end
+    
     it "builds a valid /databases aply tag" do
       DMAP.build do
         aply do
