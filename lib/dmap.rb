@@ -119,9 +119,9 @@ class DMAP
       pad = ' ' * (level * 2)
       case value
       when Array
-        (["#{pad}#{code} do"] + value.map{ |v| v.to_dsl(level + 1) } + ["#{pad}end"]).join("\n")
+        (["#{pad}#{code} do # #{@tag}"] + value.map{ |v| v.to_dsl(level + 1) } + ["#{pad}end"]).join("\n")
       else
-        "#{pad}#{code} #{value.inspect}"
+        "#{pad}#{code} #{value.inspect} # #{@tag}"
       end
     end
     

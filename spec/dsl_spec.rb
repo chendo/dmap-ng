@@ -9,9 +9,9 @@ describe "DSLs" do
           cmvo 88 # Volume
         end
       end.to_dsl.should == <<-STR.gsub(/^      /, '').strip
-      cmgt do
-        mstt 200
-        cmvo 88
+      cmgt do # unknown.list
+        mstt 200 # dmap.status
+        cmvo 88 # dmcp.volume
       end
       STR
     end
