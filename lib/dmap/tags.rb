@@ -156,6 +156,9 @@ TAGS = {
   # New tags
   :cmgt => ['unknown.list', :list],
   :cmvo => ['unknown.volume', :integer], # 0 - 100
+  :caci => ['unknown.control_init', :list],
+  :cmik => ['unknown', :boolean], # Could be a byte
+  :cmsp => ['unknown', :boolean], # Looks like shuffle
 }
 
 STATIC_LENGTH_TYPES = {

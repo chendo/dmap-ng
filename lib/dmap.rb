@@ -31,7 +31,7 @@ class DMAP
     end
     
     def parse(data)
-      Parser.parse(data)
+      Parser.parse(data).first
     end
     
     
@@ -115,6 +115,17 @@ class DMAP
       end
     end
     
+    def to_dsl(level = 0)
+      pad = ' ' * (level * 2)
+      case value
+      when Array
+        (["#{pad}#{code} do"] + value.map{ |v| v.to_dsl(level + 1) } + ["#{pad}end"]).join("\n")
+      else
+        "#{pad}#{code} #{value.inspect}"
+      end
+    end
+    
+    
   end
   
   class TagBuilder
@@ -177,7 +188,7 @@ class DMAP
         end
       end
       
-      (ret.size > 1) ? ret : ret.first
+      ret
     end
     
     

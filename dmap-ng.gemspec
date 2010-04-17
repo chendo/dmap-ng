@@ -23,10 +23,13 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "dmap-ng.gemspec",
      "lib/dmap-ng.rb",
      "lib/dmap.rb",
      "lib/dmap/tags.rb",
      "lib/true_false_ext.rb",
+     "spec/dmap_spec.rb",
+     "spec/parser_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb"
   ]
