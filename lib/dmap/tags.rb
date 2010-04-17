@@ -184,11 +184,12 @@ TAGS = {
   :canl => ['dacp.track_album', :string], # name?
   :cang => ['dacp.track_genre', :string], # name?
     
-  :cant => ['dacp.playingtime', :long], # in milliseconds
-  :cast => ['dacp.totaltime', :long],
+  :cant => ['dacp.playingtime', :integer], # in milliseconds
+  :cast => ['dacp.totaltime', :integer],
   
   :canp => ['dacp.nowplaying', :string], # guessing the name
   :cmmk => ['unknown', :integer],
+  :ceGS => ['unknown', :byte], # could be boolean same prefix as jukebox stuff further up
 
   # Interesting strings from iTunes
   # daap.baseplaylist

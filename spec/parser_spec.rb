@@ -48,7 +48,28 @@ describe DMAP::Parser do
       end
       
       it "parses cmst (player status)" do
-        DMAP.parse("cmst\000\000\001%mstt\000\000\000\004\000\000\000\310cmsr\000\000\000\004\000\000\000'caps\000\000\000\001\003cash\000\000\000\001\000carp\000\000\000\001\000cavc\000\000\000\001\001caas\000\000\000\004\000\000\000\002caar\000\000\000\004\000\000\000\006canp\000\000\000\020\000\000\000'\000\000(F\000\000(\266\000\000\016\375cann\000\000\000/Who Needs Forever? (Thievery Corporation remix)cana\000\000\000\017Astrud Gilbertocanl\000\000\000\rVerve Remixedcang\000\000\000\021Electronica/Danceasai\000\000\000\b}\026}\030\336\367Q\035cmmk\000\000\000\004\000\000\000\001ceGS\000\000\000\001\001cant\000\000\000\004\000\002 Gcast\000\000\000\004\000\003\335\024").tapp.to_dsl.tapp
+        DMAP.parse("cmst\000\000\001%mstt\000\000\000\004\000\000\000\310cmsr\000\000\000\004\000\000\000'caps\000\000\000\001\003cash\000\000\000\001\000carp\000\000\000\001\000cavc\000\000\000\001\001caas\000\000\000\004\000\000\000\002caar\000\000\000\004\000\000\000\006canp\000\000\000\020\000\000\000'\000\000(F\000\000(\266\000\000\016\375cann\000\000\000/Who Needs Forever? (Thievery Corporation remix)cana\000\000\000\017Astrud Gilbertocanl\000\000\000\rVerve Remixedcang\000\000\000\021Electronica/Danceasai\000\000\000\b}\026}\030\336\367Q\035cmmk\000\000\000\004\000\000\000\001ceGS\000\000\000\001\001cant\000\000\000\004\000\002 Gcast\000\000\000\004\000\003\335\024").should == DMAP.build do
+          cmst do
+            mstt 200
+            cmsr 39
+            caps 3
+            cash 0
+            carp 0
+            cavc 1
+            caas 2
+            caar 6
+            canp "\000\000\000'\000\000(F\000\000(\266\000\000\016\375"
+            cann "Who Needs Forever? (Thievery Corporation remix)"
+            cana "Astrud Gilberto"
+            canl "Verve Remixed"
+            cang "Electronica/Dance"
+            asai 9013529250002063645
+            cmmk 1
+            ceGS 1
+            cant 139335
+            cast 253204
+          end
+        end
       end
     end
   end
