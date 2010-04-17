@@ -30,8 +30,21 @@ describe DMAP::Parser do
       end
       
       it "parses caci" do
-        DMAP.parse("caci\000\000\000[mstt\000\000\000\004\000\000\000\310muty\000\000\000\001\000mtco\000\000\000\004\000\000\000\001mrco\000\000\000\004\000\000\000\001mlcl\000\000\000&mlit\000\000\000\036miid\000\000\000\004\000\000\000\001cmik\000\000\000\001\001cmsp\000\000\000\001\001").to_dsl
-        
+        DMAP.parse("caci\000\000\000[mstt\000\000\000\004\000\000\000\310muty\000\000\000\001\000mtco\000\000\000\004\000\000\000\001mrco\000\000\000\004\000\000\000\001mlcl\000\000\000&mlit\000\000\000\036miid\000\000\000\004\000\000\000\001cmik\000\000\000\001\001cmsp\000\000\000\001\001").should == DMAP.build do
+          caci do # Some container
+            mstt 200 # Status
+            muty 0 # Update type
+            mtco 1 # Total count
+            mrco 1 # Return count
+            mlcl do # Container
+              mlit do # Container item
+                miid 1 # ID
+                cmik 1 # ??
+                cmsp 1 # ??
+              end
+            end
+          end
+        end
       end
     end
   end
