@@ -19,6 +19,26 @@ describe DMAP::Parser do
     end
     
     describe "new tags" do
+      it "parses mlit (playlist entry)" do
+        DMAP.parse("mlit\000\000\000\222mikd\000\000\000\001\002asal\000\000\000\bAquariumasar\000\000\000\005Naomimiid\000\000\000\004\000\000\f3minm\000\000\000\016Relax She Saidmper\000\000\000\b}\026}\030\336\367N\324mcti\000\000\000\004\000\000(\222aeHV\000\000\000\001\000asai\000\000\000\b}\026}\030\336\367P\344ceJV\000\000\000\004\000\002\000\000ceJC\000\000\000\001\001").should == DMAP.build do
+          
+          mlit do # dmap.listingitem
+            mikd 2 # dmap.itemkind
+            asal "Aquarium" # daap.songalbum
+            asar "Naomi" # daap.songartist
+            miid 3123 # dmap.itemid
+            minm "Relax She Said" # dmap.itemname
+            mper 9013529250002063060 # dmap.persistentid
+            mcti 10386 # dmap.containeritemid
+            aeHV 0 # com.apple.itunes.has-video
+            asai 9013529250002063588 # daap.songalbumid
+            ceJV 2 # com.apple.itunes.jukebox-vote
+            ceJC 1 # com.apple.itunes.jukebox-client-vote
+          end
+          
+        end
+        
+      end
       it "parses cgmt" do
         DMAP.parse("cmgt\000\000\000\030mstt\000\000\000\004\000\000\000\310cmvo\000\000\000\004\000\000\000X"
         ).should == DMAP.build do

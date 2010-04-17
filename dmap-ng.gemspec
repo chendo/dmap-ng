@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{dmap-ng}
-  s.version = "0.2.0"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jack Chen"]
@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
      "spec/dmap_spec.rb",
      "spec/dsl_spec.rb",
      "spec/parser_spec.rb",
+     "spec/selector_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb"
   ]
@@ -43,6 +44,7 @@ Gem::Specification.new do |s|
     "spec/dmap_spec.rb",
      "spec/dsl_spec.rb",
      "spec/parser_spec.rb",
+     "spec/selector_spec.rb",
      "spec/spec_helper.rb"
   ]
 
