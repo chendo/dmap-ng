@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
      "lib/dmap/tags.rb",
      "lib/true_false_ext.rb",
      "spec/dmap_spec.rb",
+     "spec/dsl_spec.rb",
      "spec/parser_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb"
@@ -40,6 +41,7 @@ Gem::Specification.new do |s|
   s.summary = %q{An improved DMAP gem that allows easy building and parsing of DMAP structures}
   s.test_files = [
     "spec/dmap_spec.rb",
+     "spec/dsl_spec.rb",
      "spec/parser_spec.rb",
      "spec/spec_helper.rb"
   ]
