@@ -134,6 +134,7 @@ class DMAP
     end
     
     def method_missing(meth, *args, &block)
+      return super unless meth.to_s.length == 4
       if block_given?
         value = self.class.new.instance_eval &block
       else
