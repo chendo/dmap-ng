@@ -27,7 +27,8 @@ class DMAP
     def build(&block)
       builder = TagBuilder.new
       builder.instance_eval &block
-      builder.result.first
+      r = builder.result
+      r.size == 1 ? r.first : r
     end
     
     def parse(data)
@@ -125,6 +126,11 @@ class DMAP
       end
     end
     
+    def method_missing(meth, *args)
+      return super unless self.class.lookup(meth)
+      return super unless value.is_a? Array
+      value.find { |v| v.code == meth }.value
+    end
     
   end
   
