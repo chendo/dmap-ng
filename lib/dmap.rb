@@ -51,6 +51,8 @@ class DMAP
     def initialize(code, value)
       @code, @value = code, value
       @tag, @type = lookup
+      
+      raise "Cannot have nil value in tag #{code}" if value.nil? && type != :list
     end
     
     def to_dmap

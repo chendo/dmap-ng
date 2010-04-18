@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{dmap-ng}
-  s.version = "0.2.1"
+  s.version = "0.2.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jack Chen"]
@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
      "lib/true_false_ext.rb",
      "spec/dmap_spec.rb",
      "spec/dsl_spec.rb",
+     "spec/packet_dumps/connection_with_voting.dump",
      "spec/parser_spec.rb",
      "spec/selector_spec.rb",
      "spec/spec.opts",
