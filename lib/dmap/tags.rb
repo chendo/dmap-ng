@@ -99,7 +99,7 @@ TAGS = {
   :ceJC => ['com.apple.itunes.jukebox-client-vote', :signed_byte],
   :ceJI => ['com.apple.itunes.jukebox-current', :integer],
   :ceJS => ['com.apple.itunes.jukebox-score', :signed_short],
-  :ceJV => ['com.apple.itunes.jukebox-vote', :short],
+  :ceJV => ['com.apple.itunes.jukebox-vote', :short_integer], # Special case, 4 byte integer but data stored in first two bytes
   :ceVO => ['com.apple.itunes.unknown-voting', :boolean],
   :ceWM => ['com.apple.itunes.welcome-message', :string],
   :"f\215ch" => ['dmap.haschildcontainers', :byte],
@@ -420,4 +420,5 @@ STATIC_LENGTH_TYPES = {
   :version => [4, 'CCCC'],
   :time => [4, 'N'],
 
+  :short_integer => [4, 'nxx'],
 }

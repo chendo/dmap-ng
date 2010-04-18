@@ -27,6 +27,25 @@ describe "DSLs" do
       }.should_not raise_error
     end
     
+    it "handles the special case for ceJV" do
+      # ceJV is a 4 byte integer field but seems to store the value as a short in the first two bytes
+      DMAP.build do
+        mlit do # dmap.listingitem
+          mikd 2 # dmap.itemkind
+          asal "Aquarium" # daap.songalbum
+          asar "Naomi" # daap.songartist
+          miid 3123 # dmap.itemid
+          minm "Relax She Said" # dmap.itemname
+          mper 9013529250002063060 # dmap.persistentid
+          mcti 10386 # dmap.containeritemid
+          aeHV 0 # com.apple.itunes.has-video
+          asai 9013529250002063588 # daap.songalbumid
+          ceJV 2 # com.apple.itunes.jukebox-vote
+          ceJC 1 # com.apple.itunes.jukebox-client-vote
+        end
+      end.to_dmap.should == "mlit\000\000\000\222mikd\000\000\000\001\002asal\000\000\000\bAquariumasar\000\000\000\005Naomimiid\000\000\000\004\000\000\f3minm\000\000\000\016Relax She Saidmper\000\000\000\b}\026}\030\336\367N\324mcti\000\000\000\004\000\000(\222aeHV\000\000\000\001\000asai\000\000\000\b}\026}\030\336\367P\344ceJV\000\000\000\004\000\002\000\000ceJC\000\000\000\001\001"
+    end
+    
     it "builds a valid /databases aply tag" do
       DMAP.build do
         aply do
