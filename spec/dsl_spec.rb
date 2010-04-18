@@ -27,6 +27,31 @@ describe "DSLs" do
       }.should_not raise_error
     end
     
+    it "works with Array#each" do
+      DMAP.build do
+        apso do
+          mlcl do
+            %w(foo bar).each do |name|
+              mlit do
+                cann name
+              end
+            end
+          end
+        end
+      end.should == DMAP.build do
+          apso do
+            mlcl do
+              mlit do
+                cann 'foo'
+              end
+              mlit do
+                cann 'bar'
+              end
+            end
+          end
+        end
+    end
+    
     it "handles the special case for ceJV" do
       # ceJV is a 4 byte integer field but seems to store the value as a short in the first two bytes
       DMAP.build do
