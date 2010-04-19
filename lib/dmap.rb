@@ -2,7 +2,7 @@ $:.unshift(File.dirname(__FILE__)) unless
   $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
 class DMAP
-  VERSION = '0.2.5'
+  VERSION = '0.2.6'
 end
 
 Dir[File.dirname(__FILE__) + "/dmap/**.rb"].each { |f| require f }

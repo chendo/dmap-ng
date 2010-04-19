@@ -65,12 +65,12 @@ class DMAP
       case value
       when Array
         if value.any? { |e| e.is_a? Tag }
-          (["#{pad}#{code}[#{length}]:"] + value.map{ |v| v.inspect(level + 1) }).join("\n")
+          (["#{pad}#{code}[#{length}]: #{tag}"] + value.map{ |v| v.inspect(level + 1) }).join("\n")
         else
-          "#{pad}#{code}[#{length}]: #{value.inspect}"
+          "#{pad}#{code}[#{length}]: #{value.inspect} - #{tag}"
         end
       else
-        "#{pad}#{code}[#{length}]: #{value.inspect}"
+        "#{pad}#{code}[#{length}]: #{value.inspect} - #{tag}"
       end
     end
     
@@ -78,9 +78,9 @@ class DMAP
       pad = ' ' * (level * 2)
       case value
       when Array
-        (["#{pad}#{code} do # #{@tag}"] + value.map{ |v| v.to_dsl(level + 1) } + ["#{pad}end"]).join("\n")
+        (["#{pad}#{code} do # #{tag}"] + value.map{ |v| v.to_dsl(level + 1) } + ["#{pad}end"]).join("\n")
       else
-        "#{pad}#{code} #{value.inspect} # #{@tag}"
+        "#{pad}#{code} #{value.inspect} # #{tag}"
       end
     end
     
