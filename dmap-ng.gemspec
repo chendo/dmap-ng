@@ -5,28 +5,32 @@
 
 Gem::Specification.new do |s|
   s.name = %q{dmap-ng}
-  s.version = "0.2.4"
+  s.version = "0.2.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jack Chen"]
-  s.date = %q{2010-04-18}
+  s.date = %q{2010-04-19}
   s.description = %q{An improved DMAP gem that allows easy building and parsing of DMAP structures}
   s.email = %q{chendo@chendo.net}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.rdoc"
+     "README.md"
   ]
   s.files = [
     ".document",
      ".gitignore",
      "LICENSE",
-     "README.rdoc",
+     "README.md",
      "Rakefile",
      "VERSION",
      "dmap-ng.gemspec",
+     "lib/debug_ext.rb",
      "lib/dmap-ng.rb",
      "lib/dmap.rb",
-     "lib/dmap/tags.rb",
+     "lib/dmap/parser.rb",
+     "lib/dmap/tag.rb",
+     "lib/dmap/tag_builder.rb",
+     "lib/dmap/tag_definitions.rb",
      "lib/true_false_ext.rb",
      "spec/dmap_spec.rb",
      "spec/dsl_spec.rb",
@@ -39,7 +43,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/chendo/dmap-ng}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
+  s.rubygems_version = %q{1.3.6}
   s.summary = %q{An improved DMAP gem that allows easy building and parsing of DMAP structures}
   s.test_files = [
     "spec/dmap_spec.rb",
