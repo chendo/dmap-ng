@@ -111,6 +111,45 @@ which gives you this:
     
 As you can see, it also puts in the tag definition at the end because I got tired of having to look up what a tag actually was.
 
+Also, there is a `dmap` executable that lets you pipe DMAP data to it and it'll give you a `DMAP::Tag#inspect` output. Example usage:
+
+    $ curl A "Remote/1.3.3" -H "Special-Client: 2" "http://localhost:3689/server-info" | dmap 
+    msrv[316]: dmap.serverinforesponse
+      mstt[4]: 200 - dmap.status
+      mpro[4]: [0, 2, 0, 6] - dmap.protocolversion
+      apro[4]: [0, 3, 0, 8] - daap.protocolversion
+      aeSV[4]: [0, 3, 0, 1] - com.apple.itunes.music-sharing-version
+      aeFP[1]: 1 - com.apple.itunes.req-fplay
+      ated[2]: 3 - daap.supportsextradata
+      msed[1]: 0 - unknown_msed
+      msml[48]: unknown_msml
+        msma[8]: <censored until I know what this does>
+        msma[8]: <censored until I know what this does>
+        msma[8]: <censored until I know what this does>
+      ceWM[3]: "sup" - com.apple.itunes.welcome-message
+      ceVO[1]: 1 - com.apple.itunes.unknown-voting
+      minm[18]: "chendo\342\200\231s Library" - dmap.itemname
+      mslr[1]: 1 - dmap.loginrequired
+      mstm[4]: 1800 - dmap.timeoutinterval
+      msal[1]: 1 - dmap.supportsautologout
+      msas[1]: 3 - dmap.authenticationschemes
+      msup[1]: 1 - dmap.supportsupdate
+      mspi[1]: 1 - dmap.supportspersistentids
+      msex[1]: 1 - dmap.supportsextensions
+      msbr[1]: 1 - dmap.supportsbrowse
+      msqy[1]: 1 - dmap.supportsquery
+      msix[1]: 1 - dmap.supportsindex
+      msrs[1]: 1 - dmap.supportsresolve
+      msdc[4]: 1 - dmap.databasescount
+      mstc[4]: 1271654695 - dmap.utctime
+      msto[4]: 36000 - dmap.utcoffset
+      
+Or if you've saved the bytes to a file with Wireshark or something:
+
+    $ dmap file.dump
+    $ cat file.dump | dmap
+    $ dmap < file.dump
+
 ## Come across a new tag?
 
 Send me an email with a pcap dump of the entire process and I'll see what I can do.
