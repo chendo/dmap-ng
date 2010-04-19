@@ -3,24 +3,10 @@ $:.unshift(File.dirname(__FILE__)) unless
   
 require 'dmap/tags'
 require 'true_false_ext'
-
-class Object
-  def tap(&block)
-    yield
-    block
-  end
-  
-  def tapp(prefix = nil, &block)
-    block ||= lambda { |x| x }
-    str = (ret = block[self]).is_a?(String) ? ret : ret.inspect
-    puts [prefix, str].compact.join(': ')
-    self
-  end
-end
-  
+require 'debug_ext'
 
 class DMAP
-  VERSION = '0.0.1'
+  VERSION = '0.2.5'
   
   class << self
     
@@ -34,7 +20,6 @@ class DMAP
     def parse(data)
       Parser.parse(data).first
     end
-    
     
   end
   
@@ -75,6 +60,7 @@ class DMAP
       "#{code}#{[length].pack('N')}#{data}"
     end
     
+    # Could be optimised later down the track
     def ==(obj)
       self.to_dmap == obj.to_dmap
     end
@@ -82,7 +68,6 @@ class DMAP
     def pack_code
       @pack_code ||= STATIC_LENGTH_TYPES[type].last rescue raise("No pack code definition for #{code}")
     end
-    
     
     def length
       @length ||= case type
@@ -95,14 +80,9 @@ class DMAP
       end
     end
 
-    
-    
-    
     def lookup
       self.class.lookup(code)
     end
-    
-    
     
     def inspect(level = 0)
       pad = ' ' * (level * 2)
@@ -133,7 +113,6 @@ class DMAP
       return super unless value.is_a? Array
       value.find { |v| v.code == meth }.value
     end
-    
   end
   
   class TagBuilder
@@ -160,8 +139,6 @@ class DMAP
   end
   
   class Parser
-    
-    
     def self.parse(buffer)
       buffer = StringIO.new(buffer)
       
@@ -202,7 +179,6 @@ class DMAP
       
       ret
     end
-    
     
   end
 end
