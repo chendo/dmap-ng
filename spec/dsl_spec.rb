@@ -27,6 +27,16 @@ describe "DSLs" do
       }.should_not raise_error
     end
     
+    it "should throw an exception on unknown tags" do
+      lambda {
+        DMAP.build do
+          derp do
+            hurr "durr"
+          end
+        end
+      }.should raise_error
+    end
+    
     it "works with Array#each" do
       DMAP.build do
         apso do

@@ -13,6 +13,7 @@ class DMAP
       @tag, @type = lookup
       
       raise "Cannot have nil value in tag #{code}" if value.nil? && type != :list
+      raise "Unknown tag #{code}" if tag.nil?
     end
     
     def to_dmap
