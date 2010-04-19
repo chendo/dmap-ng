@@ -5,13 +5,15 @@
 
 Gem::Specification.new do |s|
   s.name = %q{dmap-ng}
-  s.version = "0.2.5"
+  s.version = "0.2.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jack Chen"]
   s.date = %q{2010-04-19}
+  s.default_executable = %q{dmap}
   s.description = %q{An improved DMAP gem that allows easy building and parsing of DMAP structures}
   s.email = %q{chendo@chendo.net}
+  s.executables = ["dmap"]
   s.extra_rdoc_files = [
     "LICENSE",
      "README.md"
@@ -23,6 +25,7 @@ Gem::Specification.new do |s|
      "README.md",
      "Rakefile",
      "VERSION",
+     "bin/dmap",
      "dmap-ng.gemspec",
      "lib/debug_ext.rb",
      "lib/dmap-ng.rb",

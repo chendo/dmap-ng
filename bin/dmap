@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'dmap-ng'
+
+def print_help
+  STDERR.puts "dmap - shows you the structure of a DMAP data structure"
+  STDERR.puts "Usage: #{File.basename($0)} [--help] <file>"
+end
+
+case ARGV.first
+when '--help'
+  print_help
+when '-h'
+  print_help
+else
+  data = ARGF.read
+  if data.strip.length == 0
+    print_help
+  else
+    STDOUT.puts DMAP.parse(data).inspect
+  end
+end
+
